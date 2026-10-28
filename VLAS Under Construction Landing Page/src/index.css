@@ -1,0 +1,266 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-vlas-navy: #0d1c32;
+  --color-vlas-ink: #081220;
+  --color-vlas-red: #ab131e;
+  --color-vlas-slate: #aab3bf;
+  --color-vlas-white: #ffffff;
+  --font-serif: Georgia, 'Times New Roman', serif;
+  --font-sans: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  html {
+    background: var(--color-vlas-navy);
+  }
+
+  body {
+    min-width: 320px;
+    margin: 0;
+    background: var(--color-vlas-navy);
+    color: var(--color-vlas-white);
+    font-family: var(--font-sans);
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+.site-shell {
+  position: relative;
+  display: flex;
+  min-height: 100svh;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--color-vlas-navy);
+}
+
+.site-shell::before {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+  content: '';
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.site-header,
+.hero,
+footer {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 3rem, 82rem);
+  margin-inline: auto;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 2.25rem 1.75rem;
+  border-bottom: 1px solid rgb(255 255 255 / 14%);
+}
+
+.brand-logo {
+  width: 15.5rem;
+  height: 4.2rem;
+  object-fit: cover;
+  object-position: left center;
+}
+
+.header-note {
+  color: var(--color-vlas-slate);
+  font-size: 0.69rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero {
+  display: grid;
+  flex: 1;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6rem;
+  padding-block: 5rem;
+}
+
+.hero-content {
+  max-width: 52rem;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.7rem;
+  color: #d9dee5;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.eyebrow-mark {
+  width: 2.6rem;
+  height: 0.18rem;
+  background: var(--color-vlas-red);
+}
+
+h1 {
+  margin: 0;
+  color: var(--color-vlas-white);
+  font-family: var(--font-serif);
+  font-size: clamp(3.4rem, 7.2vw, 7rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+}
+
+h1 span {
+  color: #c5cbd3;
+}
+
+.brand-message {
+  margin: 1.6rem 0 0;
+  color: var(--color-vlas-white);
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  font-weight: 700;
+}
+
+.intro {
+  max-width: 39rem;
+  margin: 1rem 0 0;
+  color: #bec6d0;
+  font-size: clamp(1rem, 1.4vw, 1.16rem);
+  line-height: 1.7;
+}
+
+.contact-block {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgb(255 255 255 / 14%);
+}
+
+.contact-block p {
+  margin: 0;
+  color: #8f9aa8;
+  font-size: 0.84rem;
+}
+
+.contact-block a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-decoration-color: var(--color-vlas-red);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35rem;
+}
+
+.contact-block a:hover {
+  color: #e0e4e9;
+}
+
+.contact-block svg {
+  width: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linejoin: round;
+}
+
+.hero-seal {
+  width: 11.5rem;
+  padding: 2.4rem 1.5rem;
+  border: 1px solid rgb(255 255 255 / 18%);
+  color: #8994a2;
+  text-align: center;
+}
+
+.seal-stars {
+  color: var(--color-vlas-white);
+  font-size: 0.75rem;
+  letter-spacing: 0.7em;
+  transform: translateX(0.35em);
+}
+
+.seal-rule {
+  width: 2.5rem;
+  height: 0.16rem;
+  margin: 1.35rem auto;
+  background: var(--color-vlas-red);
+}
+
+.hero-seal p {
+  margin: 0.4rem 0;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 1.3rem;
+  border-top: 1px solid rgb(255 255 255 / 14%);
+  color: #6f7b89;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+footer p {
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .site-header,
+  .hero,
+  footer {
+    width: min(100% - 2.5rem, 82rem);
+  }
+
+  .site-header {
+    padding-block: 1.5rem;
+  }
+
+  .brand-logo {
+    width: 12.5rem;
+    height: 3.4rem;
+  }
+
+  .header-note,
+  .hero-seal {
+    display: none;
+  }
+
+  .hero {
+    display: flex;
+    padding-block: 4rem;
+  }
+
+  h1 {
+    font-size: clamp(3.25rem, 15vw, 5rem);
+  }
+
+  .contact-block {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  footer {
+    gap: 1rem;
+  }
+
+  footer p:last-child {
+    display: none;
+  }
+}
