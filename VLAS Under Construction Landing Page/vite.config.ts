@@ -4,8 +4,19 @@ import tailwindcss from '@tailwindcss/vite'
 import fs from 'node:fs'
 import path from 'node:path'
 
-import siteConfiguration from './.figma/make/site.json'
-
+// Keep deployment metadata in this tracked config rather than depending on
+// Figma Make's hidden, generated .figma/make/site.json file.
+const siteConfiguration = {
+  title: 'Veterans Legal Aid Society',
+  description:
+    'A professional temporary homepage for Veterans Legal Aid Society that reassures visitors and directs veterans and their families to legal aid resources.',
+  robots: {
+    index: false,
+  },
+  accessibility: {
+    addBypassLinks: false,
+  },
+}
 
 // Vite config — https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
