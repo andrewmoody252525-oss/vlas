@@ -1,8 +1,5 @@
-const MailIcon = () => (
-  <svg aria-hidden="true" viewBox="0 0 24 24">
-    <path d="M4 6h16v12H4V6Zm0 1 8 6 8-6" />
-  </svg>
-)
+const introCopy =
+  'We’re creating a better online home for veterans and their families to find trusted legal support, practical resources, and a stronger path forward.'
 
 export default function App() {
   return (
@@ -31,23 +28,21 @@ export default function App() {
 
           <p className="brand-message">Still serving. Building forward.</p>
 
-          <p className="intro">
-            We’re creating a better online home for veterans and their families
-            to find trusted legal support, practical resources, and a stronger
-            path forward.
+          <p className="intro" aria-label={introCopy}>
+            {introCopy.split(' ').map((word, index) => (
+              <span key={`${word}-${index}`} aria-hidden="true">
+                {word}
+              </span>
+            ))}
           </p>
-
-          <div className="contact-block">
-            <p>Need to reach us in the meantime?</p>
-            <a href="mailto:info@vlas.org">
-              <MailIcon />
-              info@vlas.org
-            </a>
-          </div>
         </div>
 
         <div className="hero-seal" aria-hidden="true">
-          <div className="seal-stars">★ ★ ★</div>
+          <div className="seal-stars">
+            <span>★</span>
+            <span>★</span>
+            <span>★</span>
+          </div>
           <div className="seal-rule" />
           <p>Honor</p>
           <p>Service</p>
